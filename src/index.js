@@ -1,28 +1,26 @@
 // require('dotenv').config({path: './env'});
 import dotenv from "dotenv";
-dotenv.config({ path: "./env "});
-
-import express from "express";
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
+dotenv.config({ path: "./env " });
 
-const app = express();
 const port = process.env.PORT || 8080;
 
 connectDB()
-  .then(() => {
-    // Listen for server-level errors (like port in use)
-    app.on("error", (err) => {
-      console.error("App error event:", err);
-    });
+    .then(() => {
+        // Listen for server-level errors (like port in use)
+        app.on("error", (err) => {
+            console.error("App error event:", err);
+        });
 
-    app.listen(port, () => {
-      console.log(`⚙️  Server listening on port ${port}`);
+        app.listen(port, () => {
+            console.log(`⚙️  Server listening on port ${port}`);
+        });
+    })
+    .catch((err) => {
+        console.error("Failed to connect to MongoDB", err);
+        process.exit(1);
     });
-  })
-  .catch((err) => {
-    console.error("Failed to connect to MongoDB", err);
-    process.exit(1);
-  });
 
 /*
 import express from "express";
