@@ -6,7 +6,7 @@ const userSchema = new Schema(
     {
         username: {
             type: String,
-            required: true,
+            required: [true, "username is required"],
             lowercase: true,
             unique: true,
             trim: true,
@@ -14,19 +14,19 @@ const userSchema = new Schema(
         },
         email: {
             type: String,
-            required: true,
+            required: [true, "email is required"],
             lowercase: true,
             unique: true,
             trim: true,
         },
         fullname: {
             type: String,
-            required: true,
+            required: [true, "fullname is required"],
             trim: true,
         },
         avatar: {
             type: String, // cloudinary url
-            required: true,
+            required: [true, "avatar is required"],
         },
         coverImage: {
             type: String, // cloudinary url
@@ -51,7 +51,7 @@ const userSchema = new Schema(
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
 
-    this.password = bcrypt.hash(this.password, 10);
+    this.password = await bcrypt.hash(this.password, 10);
     next();
 });
 
