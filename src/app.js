@@ -21,8 +21,11 @@ app.use(cookieParser());
 import userRouter from "./routes/user.routes.js";
 
 // routes declaration
+
 // set base route to /api/v1/users
 app.use("/api/v1/users", userRouter);
+
+
 
 // ✅ Global error handler — must come after routes
 app.use((err, req, res, next) => {
@@ -36,15 +39,5 @@ app.use((err, req, res, next) => {
         message: err.message || "Internal Server Error",
     });
 });
-
-// app.use((err, req, res, next) => {
-//   const statusCode = err.statusCode || 500;
-
-//   res.status(statusCode).json({
-//     success: false,
-//     message: err.message || "Internal Server Error",
-//     ...(process.env.NODE_ENV === "development" && { stack: err.stack })
-//   });
-// });
 
 export { app };
