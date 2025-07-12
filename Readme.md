@@ -2,7 +2,7 @@ Here’s a clean and professional full `README.md` for your **Video Platform Bac
 
 ---
 
-````markdown
+
 # 🎥 Video Platform Backend
 
 A fully-featured **Node.js backend** for a YouTube-style video platform. Supports **user registration**, **authentication**, **profile customization**, and **watch history**, with image uploads using Cloudinary.
