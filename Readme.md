@@ -1,4 +1,3 @@
-Here’s a clean and professional full `README.md` for your **Video Platform Backend** project:
 
 ---
 
