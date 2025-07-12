@@ -1,7 +1,7 @@
 {
-  "name": "chai-aur-backend",
+  "name": "video-platform-backend",
   "version": "1.0.0",
-  "description": "A backend project from chai aur backend",
+  "description": "A backend API for user authentication and profile management in a video platform like YouTube, built using Node.js, Express, MongoDB, and Cloudinary.",
   "type": "module",
   "main": "index.js",
   "scripts": {
